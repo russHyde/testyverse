@@ -1,28 +1,17 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
 
 # testyverse
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of testyverse is to ...
+The goal of testyverse is to …
 
 ## Installation
 
-You can install the released version of testyverse from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of testyverse from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("testyverse")
@@ -32,14 +21,14 @@ install.packages("testyverse")
 
 TODO: testing is ace
 
-TODO: don't be an evangelical arse about anything
+TODO: don’t be an evangelical arse about anything
 
 TODO: Do most CRAN packages use a testing library?
 
 TODO: For those that do, which one do they use?
 
-TODO: And what of ancillary testing tools: hedgehog, covr, mutant, autotest, mockery, shinytest,
-unitizer
+TODO: And what of ancillary testing tools: hedgehog, covr, mutant,
+autotest, mockery, shinytest, unitizer
 
 TODO: Any package-package correlations between testing tools
 
@@ -47,10 +36,10 @@ TODO: Any package-package correlations between testing tools
 
 For unit testing there are several main tools available in R:
 
-- testthat
-- RUnit
-- testit
-- tinytest
+-   testthat
+-   RUnit
+-   testit
+-   tinytest
 
 TODO: similarities and differences between the packages
 
@@ -62,17 +51,13 @@ TODO: similarities and differences between the packages
 
 GPL3
 
-```
-./tests/testit/test-some_file.R
-```
+    ./tests/testit/test-some_file.R
 
-```
-# ./tests/test-all.R
-library(testit)
-testit::test_pkg("myPackage")
-```
+    # ./tests/test-all.R
+    library(testit)
+    testit::test_pkg("myPackage")
 
-```r
+``` r
 assert("testit has the least to learn", {
   # All statements in parentheses should evaluate TRUE
   (TRUE)
