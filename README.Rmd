@@ -163,10 +163,32 @@ if (requireNamespace("tinytest", quietly = TRUE)) {
 ```
 
 NO! That can't be right.
-`R CMD check` ran from RStudio, tinytest.R is ran, but a failing test in ./inst/tinytest/test-vectors.R
-does not lead to `R CMD check failing`
+In `R CMD check`, as ran from RStudio's Build panel, `./tests/tinytest.R` is ran, but a failing test
+in `./inst/tinytest/test-vectors.R` does not lead to `R CMD check` failing.
+This turned out to be due to using `tinytest::expect_equal` in a test script, rather than the
+bare function name `expect_equal`.
+
+Different results depending on how you express the tests:
+```
+# the results from this test won't be registered (so will be ignored by R CMD check)
+tinytest::expect_equal(...)
+
+# the results from this test will be registered (and test failures will be caught by R CMD check)
+expect_equal(...)
+```
+
+Will this make it difficult to migrate from / to testthat?
+
 <!-- If a file doesn't exist then run_test_file("not-a-file.R") returns without error / warning -->
 
 Features:
 
 - `tinytest::setup_tinytest("myPackage")`
+  - adds ./tests/tinytest.R and ./inst/tinytest/test_<packageName>.R
+- Monitoring of side-effects
+- Test code is installed with your package
+- No dependencies (beyond base R packages)
+
+TODO:
+- testing shiny
+- assertyverse ({checkmate}, {assertthat}, {assertr}, {assertive})
