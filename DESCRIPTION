@@ -18,3 +18,5 @@ Imports:
     magrittr,
     rlang,
     tibble
+Suggests: 
+    testit
